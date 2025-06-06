@@ -33,14 +33,14 @@ class RegisterResponseModel {
 
 class Data {
   int id;
-  String name;
+  String username;
   String email;
   String role;
   String token;
 
   Data({
     required this.id,
-    required this.name,
+    required this.username,
     required this.email,
     required this.role,
     required this.token,
@@ -48,7 +48,7 @@ class Data {
 
   factory Data.fromMap(Map<String, dynamic> json) => Data(
     id: json["id"],
-    name: json["name"],
+    username: json["username"],
     email: json["email"],
     role: json["role"],
     token: json["token"],
@@ -56,7 +56,7 @@ class Data {
 
   Map<String, dynamic> toMap() => {
     "id": id,
-    "name": name,
+    "username": username,
     "email": email,
     "role": role,
     "token": token,

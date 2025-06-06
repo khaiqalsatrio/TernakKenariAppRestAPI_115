@@ -4,7 +4,7 @@ LoginResponseModel loginResponseModelFromMap(String str) =>
     LoginResponseModel.fromMap(json.decode(str));
 
 String loginResponseModelToMap(LoginResponseModel data) =>
-    json.encode(data.toMap());
+    json.encode(data.data);
 
 class LoginResponseModel {
   String message;
@@ -23,12 +23,6 @@ class LoginResponseModel {
         statusCode: json["status_code"],
         data: Data.fromMap(json["data"]),
       );
-
-  Map<String, dynamic> toMap() => {
-    "message": message,
-    "status_code": statusCode,
-    "data": data.toMap(),
-  };
 }
 
 class Data {
@@ -37,6 +31,8 @@ class Data {
   String email;
   String role;
   String token;
+  String address;
+  String phone;
 
   Data({
     required this.id,
@@ -44,6 +40,8 @@ class Data {
     required this.email,
     required this.role,
     required this.token,
+    required this.address,
+    required this.phone,
   });
 
   factory Data.fromMap(Map<String, dynamic> json) => Data(
@@ -52,13 +50,7 @@ class Data {
     email: json["email"],
     role: json["role"],
     token: json["token"],
+    address: json["address"] ?? '',
+    phone: json["phone"] ?? '',
   );
-
-  Map<String, dynamic> toMap() => {
-    "id": id,
-    "name": name,
-    "email": email,
-    "role": role,
-    "token": token,
-  };
 }
